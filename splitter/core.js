@@ -220,8 +220,20 @@ var $universalSplitter = {
         if(options.vertical){
 
             options.splitterHtml = options.splitterHtml.replace('<div', '<div id="'+options.splitterId+'" style="height: '+options.splitterHeightPx+'px; width: '+options.splitterWidth+'px !important"');
-            options.first.css('width', 'calc(50% - '+(options.splitterWidth/2)+'px)');
-            options.second.css('width', 'calc(50% - '+(options.splitterWidth/2)+'px)');
+
+            if(!options.initialFirstWidth){
+                options.first.css('width', 'calc(50% - '+(options.splitterWidth/2)+'px)');
+            }else{
+                options.first.css('width', options.initialFirstWidth);
+            }
+
+            if(!options.initialSecondWidth){
+                options.second.css('width', 'calc(50% - '+(options.splitterWidth/2)+'px)');
+            }else{
+                options.second.css('width', options.initialSecondWidth);
+            }
+
+
 
         }
 
