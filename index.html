@@ -13,11 +13,90 @@
     <link type="text/css" rel="stylesheet" href="syntaxhighlighter_3.0.83/styles/shCoreDefault.css"/>
     <script type="text/javascript">SyntaxHighlighter.all();</script>
 
+    <link type="text/css" rel="stylesheet" href="splitter.css"/>
+
 </head>
 <body>
 
 <div class="container">
     <h1>Universal splitter</h1>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Split DIVs horizontally - absolute column with relative </h3>
+        </div>
+        <div class="panel-body">
+
+            <p>
+                Example shows how to split absolute column (ex. menu) with relative.
+            </p>
+
+            <p><b>CSS:</b></p>
+            <pre class="brush: plain;">
+
+                .absolute-content {
+                    height: 200px;
+                }
+
+                .absolute-content div {
+                    height: 200px;
+                }
+
+                .absolute-col {
+                    position: absolute;
+                    width: 120px;
+                    height: inherit;
+                }
+
+            </pre>
+
+            <p><b>HTML:</b></p>
+            <pre class="brush: plain;">
+                <div class="absolute-content">
+                    <div id="absolute-col1" class="absolute-col">
+                        ...
+                    </div>
+                    <div id="absolute-col2">
+                        ...
+                    </div>
+                </div>
+            </pre>
+
+            <p><b>JavaScript:</b></p>
+            <pre class="brush: js;">
+                 $universalSplitter.split({
+                    first: '#absolute-col1',
+                    second: '#absolute-col2',
+                    vertical: true,
+                    absolute: true,
+                    splitterWidth: 10,
+                    splitterHeight: 'OUTER',
+                    firstMinWidth: 100,
+                    secondMinWidth: 200,
+                    splitterClass: 'splitter-example-3',
+                    addOverflow: true,
+                    initialFirstWidth: '120px',
+                    initialSecondWidth: 'calc(100% - 130px)'
+                });
+            </pre>
+
+            <p><b>Result:</b></p>
+            <div class="absolute-content">
+                <div id="absolute-col-1" class="absolute-col">
+                    <ul>
+                        <li>Menu position 1</li>
+                        <li>Menu position 2</li>
+                        <li>Menu position 3</li>
+                    </ul>
+                </div>
+                <div id="absolute-col-2">
+                    At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate
+                </div>
+            </div>
+
+        </div>
+    </div>
+
 
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -252,16 +331,6 @@
 
 </div>
 
-<!--
-  <pre class="brush: js;">
-
-
-                </pre>
-
-              <pre class="brush: plain;">
-
-              </pre>
--->
 
 <script src="jquery.min.js"></script>
 <script src="bootstrap.min.js"></script>
@@ -322,8 +391,22 @@
         border: 1px solid gray;
     }
 
-    #top-row-1, #down-row-1 {
+    #top-row-1, #down-row-1, #absolute-col-1, #absolute-col-2 {
         border: 1px solid gray;
+    }
+
+    .absolute-content {
+        height: 200px;
+    }
+
+    .absolute-col {
+        position: absolute;
+        width: 120px;
+        height: inherit;
+    }
+
+    .absolute-content div {
+        height: 200px;
     }
 
 </style>

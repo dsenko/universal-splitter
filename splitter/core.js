@@ -54,6 +54,10 @@ var $universalSplitter = {
                             console.log('sett');
                             $universalSplitter.currentOptions.first.css('width', firstWidth+'px');
                             $universalSplitter.currentOptions.second.css('width', secondWidth+'px');
+
+                            if($universalSplitter.currentOptions.absolute){
+                                $universalSplitter.current.css('margin-left', firstWidth+'px');
+                            }
                         }
 
                         $universalSplitter.lastX = currentX;
@@ -219,7 +223,14 @@ var $universalSplitter = {
 
         if(options.vertical){
 
-            options.splitterHtml = options.splitterHtml.replace('<div', '<div id="'+options.splitterId+'" style="height: '+options.splitterHeightPx+'px; width: '+options.splitterWidth+'px !important"');
+            if(options.absolute){
+
+                options.marginLeft = options.first.outerWidth();
+
+                options.splitterHtml = options.splitterHtml.replace('<div', '<div id="'+options.splitterId+'" style="margin-left: '+options.marginLeft+'px; position: relative; float: left; height: inherit; width: '+options.splitterWidth+'px !important"');
+            }else{
+                options.splitterHtml = options.splitterHtml.replace('<div', '<div id="'+options.splitterId+'" style="height: '+options.splitterHeightPx+'px; width: '+options.splitterWidth+'px !important"');
+            }
 
             if(!options.initialFirstWidth){
                 options.first.css('width', 'calc(50% - '+(options.splitterWidth/2)+'px)');
@@ -276,8 +287,23 @@ var $universalSplitter = {
     lastY: null,
 
 }
-/*
+
 $(document).ready(function(){
+
+    $universalSplitter.split({
+        first: '#absolute-col-1',
+        second: '#absolute-col-2',
+        vertical: true,
+        absolute: true,
+        splitterWidth: 10,
+        splitterHeight: 'OUTER',
+        firstMinWidth: 100,
+        secondMinWidth: 200,
+        splitterClass: 'splitter-example-3',
+        addOverflow: true,
+        initialFirstWidth: '120px',
+        initialSecondWidth: 'calc(100% - 130px)'
+    });
 
     $universalSplitter.split({
         first: '#left-col-1',
@@ -317,4 +343,3 @@ $(document).ready(function(){
     });
 
 });
-*/
