@@ -14,6 +14,12 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: './splitter',
+                        src: ['splitter.css'],
+                        dest: './dist/'
+                    },
+                    {
+                        expand: true,
+                        cwd: './splitter',
                         src: ['horizontal.png'],
                         dest: './dist/'
                     },
