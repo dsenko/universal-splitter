@@ -1,0 +1,23 @@
+{
+    "name": "universal-splitter",
+    "version": "0.0.1",
+    "main": "dist/universal-splitter.min.js",
+    "ignore": [
+        "source",
+        "spec",
+        ".bowerrc",
+        ".gitignore",
+        ".jshintignore",
+        ".jshintrc",
+        "bower.json",
+        "gruntfile.js",
+        "package.json",
+        "README.md",
+		"LICENSE"
+    ],
+    "dependencies": {
+		"jQuery": ">=1.1.0",
+        "bootstrap": "3.3.2",
+        "syntax" : "https://github.com/gadicc/meteor-SyntaxHighlighter.git"
+    }
+}
