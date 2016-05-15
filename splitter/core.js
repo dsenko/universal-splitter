@@ -288,6 +288,7 @@ var $universalSplitter = {
 
 }
 
+/*
 $(document).ready(function(){
 
     $universalSplitter.split({
@@ -342,4 +343,4 @@ $(document).ready(function(){
         addOverflow: true
     });
 
-});
+});*/
